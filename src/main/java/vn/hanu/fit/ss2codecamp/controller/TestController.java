@@ -18,34 +18,9 @@ public class TestController {
     @PostMapping("/test")
     public String testAPI(@RequestBody  String code) throws IOException {
         LOGGER.info("/test: " + code);
-//        save(code);
-//        boolean changeExtension = changeExtension(new File(PATH),"java");
-//        LOGGER.info("changeExtension(): " + changeExtension);
         FileUtils.init(code, PATH);
         return "OK";
     }
 
-//    static void save(String code) throws IOException {
-//        LOGGER.info("save(): " + code);
-//        BufferedWriter output = null;
-//        try {
-//            File file = new File(PATH);
-//            output = new BufferedWriter(new FileWriter(file));
-////            output.write("package vn.hanu.fit.ss2codecamp;");
-//            output.append(code);
-//        } catch ( IOException e ) {
-//            e.printStackTrace();
-//        } finally {
-//            if ( output != null ) {
-//                output.close();
-//            }
-//        }
-//    }
-//
-//    public static boolean changeExtension(File f, String newExtension) {
-//        File file  = f;
-//        String str = file.getPath().replace(".txt", ".java"); // replacing extension to another
-//        return file.renameTo(new File(str));
-//    }
 
 }

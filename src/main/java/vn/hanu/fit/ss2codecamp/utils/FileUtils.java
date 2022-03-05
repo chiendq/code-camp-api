@@ -37,7 +37,8 @@ public class FileUtils {
     public static boolean changeExtension(File f) { //, String newExtension
         File file  = f;
         String str = file.getPath().replace(".txt", ".java"); // replacing extension to another
-
-        return file.renameTo(new File(str));
+        boolean isChanged = file.renameTo(new File(str));
+        LOGGER.info("FILE CHANGED : " + isChanged);
+        return isChanged;
     }
 }
