@@ -1,5 +1,6 @@
 package vn.hanu.fit.ss2codecamp.controller;
 
+import org.aspectj.apache.bcel.classfile.Code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +14,13 @@ import java.io.IOException;
 
 public class TestController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
-    private static final String PATH = "src/main/java/vn/hanu/fit/ss2codecamp/Code.txt";
+    private static final String PATH = "src/main/java/vn/hanu/fit/ss2codecamp/TestClass.java";
 
     @PostMapping("/test")
     public String testAPI(@RequestBody  String code) throws IOException {
         LOGGER.info("/test: " + code);
         FileUtils.init(code, PATH);
+//        LOGGER.info(vn.hanu.fit.ss2codecamp.Code.hello());
         return "OK";
     }
 

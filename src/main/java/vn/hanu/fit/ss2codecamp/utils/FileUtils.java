@@ -13,10 +13,10 @@ import java.io.IOException;
 public class FileUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
-
     public static void init(String code,String path) throws IOException {
+        changeExtension(new File(path),".java",".txt");
         save(code, path);
-        changeExtension(new File(path));
+        changeExtension(new File(path),".txt",".java");
     }
     static void save(String code, String path) throws IOException {
         LOGGER.info("save(): " + code);
@@ -34,9 +34,9 @@ public class FileUtils {
         }
     }
 
-    public static boolean changeExtension(File f) { //, String newExtension
+    public static boolean changeExtension(File f, String oldExtension, String newExtension) { //, String newExtension
         File file  = f;
-        String str = file.getPath().replace(".txt", ".java"); // replacing extension to another
+        String str = file.getPath().replace(oldExtension, newExtension); // replacing extension to another
         boolean isChanged = file.renameTo(new File(str));
         LOGGER.info("FILE CHANGED : " + isChanged);
         return isChanged;
