@@ -14,12 +14,10 @@ public class FileUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
     public static void init(String code,String path) throws IOException {
-        changeExtension(new File(path),".java",".txt");
         save(code, path);
-        changeExtension(new File(path),".txt",".java");
     }
     static void save(String code, String path) throws IOException {
-        LOGGER.info("save(): " + code);
+        LOGGER.info("FileUtils.save(): ");
         BufferedWriter output = null;
         try {
             File file = new File(path);
@@ -34,11 +32,12 @@ public class FileUtils {
         }
     }
 
-    public static boolean changeExtension(File f, String oldExtension, String newExtension) { //, String newExtension
-        File file  = f;
-        String str = file.getPath().replace(oldExtension, newExtension); // replacing extension to another
-        boolean isChanged = file.renameTo(new File(str));
-        LOGGER.info("FILE CHANGED : " + isChanged);
-        return isChanged;
-    }
+
+//    public static boolean changeExtension(File f, String oldExtension, String newExtension) { //, String newExtension
+//        File file  = f;
+//        String str = file.getPath().replace(oldExtension, newExtension); // replacing extension to another
+//        boolean isChanged = file.renameTo(new File(str));
+//        LOGGER.info("FILE "+file.getPath()+" CHANGED : " + isChanged);
+//        return isChanged;
+//    }
 }

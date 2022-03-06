@@ -18,9 +18,8 @@ public class TestController {
 
     @PostMapping("/test")
     public String testAPI(@RequestBody  String code) throws IOException {
-        LOGGER.info("/test: " + code);
+        LOGGER.info("POST REQUEST /test: ");
         FileUtils.init(code, PATH);
-//        LOGGER.info(vn.hanu.fit.ss2codecamp.Code.hello());
         return "OK";
     }
 
