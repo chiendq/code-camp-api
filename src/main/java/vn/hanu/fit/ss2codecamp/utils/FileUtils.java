@@ -31,13 +31,4 @@ public class FileUtils {
             }
         }
     }
-
-
-//    public static boolean changeExtension(File f, String oldExtension, String newExtension) { //, String newExtension
-//        File file  = f;
-//        String str = file.getPath().replace(oldExtension, newExtension); // replacing extension to another
-//        boolean isChanged = file.renameTo(new File(str));
-//        LOGGER.info("FILE "+file.getPath()+" CHANGED : " + isChanged);
-//        return isChanged;
-//    }
 }
