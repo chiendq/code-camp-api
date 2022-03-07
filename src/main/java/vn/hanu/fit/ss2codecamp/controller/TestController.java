@@ -30,15 +30,13 @@ import java.util.jar.JarFile;
 public class TestController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
-    private static final String PATH = "src/main/java/vn/hanu/fit/ss2codecamp/TestClass.java";
-
-    private static final String ABSOLUTE_PATH = "D:\\Y3S2\\Software Engineer 2\\project\\Sample\\SE2-Project-master\\se2-tut3-springboot-starter\\ss2-code-camp\\TestClass.java";
+    private static final String PATH = "TestClass.java";
 
     @CrossOrigin
     @PostMapping("/test")
     @JsonFormat
     public Respone testAPI(@RequestBody  String code) throws IOException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        FileUtils.init(code, ABSOLUTE_PATH);
+        FileUtils.init(code, PATH);
 
         Process process = Runtime.getRuntime().exec("java TestClass.java");
 
