@@ -2,7 +2,7 @@ package vn.hanu.fit.ss2codecamp.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vn.hanu.fit.ss2codecamp.controller.TestController;
+import vn.hanu.fit.ss2codecamp.controllers.TestController;
 
 import java.io.BufferedWriter;
 import java.io.File;
