@@ -11,7 +11,7 @@ import vn.hanu.fit.ss2codecamp.repositories.UserRepository;
 import javax.transaction.Transactional;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements org.springframework.security.core.userdetails.UserDetailsService {
     @Autowired
     UserRepository userRepository;
 

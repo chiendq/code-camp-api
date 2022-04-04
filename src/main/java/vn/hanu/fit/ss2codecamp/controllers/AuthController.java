@@ -1,5 +1,6 @@
 package vn.hanu.fit.ss2codecamp.controllers;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,12 @@ import vn.hanu.fit.ss2codecamp.payload.response.UserInfoResponse;
 import vn.hanu.fit.ss2codecamp.repositories.RoleRepository;
 import vn.hanu.fit.ss2codecamp.repositories.UserRepository;
 
-import java.util.Collections;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;@CrossOrigin(origins = "*", maxAge = 3600)
+import java.util.stream.Collectors;
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -49,6 +51,7 @@ public class AuthController {
     JwtUtils jwtUtils;
 
     @PostMapping("/signin")
+    @JsonFormat
     public ResponseEntity<?> authenticateUser( @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager
@@ -64,7 +67,13 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+        return ResponseEntity.ok()
+                        .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+//                        .header("Access-Control-Allow-Origin", "*")
+//                        .header("Access-Control-Allow-Headers", "*")
+//                        .header("Access-Control-Allow-Credentials", "true")
+//                        .header("Access-Control-Allow-Methods", "*")
+//                        .header("Access-Control-Max-Age", "1209600")
                 .body(new UserInfoResponse(userDetails.getId(),
                         userDetails.getUsername(),
                         userDetails.getEmail(),
@@ -115,7 +124,6 @@ public class AuthController {
                 }
             });
         }
-
         user.setRoles(roles);
         userRepository.save(user);
 
