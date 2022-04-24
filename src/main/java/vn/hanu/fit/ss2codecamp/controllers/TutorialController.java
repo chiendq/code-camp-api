@@ -33,7 +33,7 @@ public class TutorialController {
     }
 
     @GetMapping("/{id}")
-    public Tutorial getById(@PathVariable("id")Long id) throws TutorialNotFoundException {
+    public Tutorial getById(@PathVariable("id")int id) throws TutorialNotFoundException {
         return tutorialService.getById(id);
     }
 

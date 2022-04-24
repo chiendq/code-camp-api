@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface TutorialRepository extends JpaRepository<Tutorial, Integer> {
-    Optional<Tutorial> findTutorialById(Long id);
+    Tutorial getTutorialById(Long id);
 }
 
 

@@ -1,4 +1,4 @@
-package vn.hanu.fit.ss2codecamp.user.dtos.solution;
+package vn.hanu.fit.ss2codecamp.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SolutionSaveRequest {
+public class ExecuteDto {
     private int userId;
     private int tutorialId;
-    private String solutionDetails;
+    private String solution;
 }

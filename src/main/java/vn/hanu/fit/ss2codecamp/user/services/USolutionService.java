@@ -1,7 +1,7 @@
 package vn.hanu.fit.ss2codecamp.user.services;
 
 import vn.hanu.fit.ss2codecamp.entities.Solution;
-import vn.hanu.fit.ss2codecamp.user.dtos.solution.SolutionSaveRequest;
+import vn.hanu.fit.ss2codecamp.user.dtos.solution.SolutionRequest;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ public interface USolutionService {
 
     List<Solution> getByTutorialIdOrderByTimestamp(int tutorialId);
 
-    Solution saveSolution(SolutionSaveRequest solutionSaveRequest);
+    Solution saveSolution(SolutionRequest solutionSaveRequest);
 }

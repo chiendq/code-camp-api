@@ -14,8 +14,8 @@ public class TutorialServiceImpl {
     @Autowired
     TutorialRepository tutorialRepository;
 
-    public Tutorial getById(Long id) throws TutorialNotFoundException {
-        Tutorial tutorial = tutorialRepository.findTutorialById(id)
+    public Tutorial getById(int id) throws TutorialNotFoundException {
+        Tutorial tutorial = tutorialRepository.findById(id)
                 .orElseThrow(()->new TutorialNotFoundException("Tutorial not found - " + id));
 
         return tutorial;

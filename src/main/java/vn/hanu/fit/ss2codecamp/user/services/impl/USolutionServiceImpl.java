@@ -1,6 +1,5 @@
 package vn.hanu.fit.ss2codecamp.user.services.impl;
 
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import vn.hanu.fit.ss2codecamp.entities.Solution;
 import vn.hanu.fit.ss2codecamp.entities.Tutorial;
@@ -8,7 +7,7 @@ import vn.hanu.fit.ss2codecamp.entities.User;
 import vn.hanu.fit.ss2codecamp.repositories.SolutionRepository;
 import vn.hanu.fit.ss2codecamp.repositories.TutorialRepository;
 import vn.hanu.fit.ss2codecamp.repositories.UserRepository;
-import vn.hanu.fit.ss2codecamp.user.dtos.solution.SolutionSaveRequest;
+import vn.hanu.fit.ss2codecamp.user.dtos.solution.SolutionRequest;
 import vn.hanu.fit.ss2codecamp.user.services.USolutionService;
 
 import java.sql.Timestamp;
@@ -39,7 +38,7 @@ public class USolutionServiceImpl implements USolutionService {
     }
 
     @Override
-    public Solution saveSolution(SolutionSaveRequest solutionSaveRequest) {
+    public Solution saveSolution(SolutionRequest solutionSaveRequest) {
         User user = userRepository.getById((long) solutionSaveRequest.getUserId());
         Tutorial tutorial = tutorialRepository.getById(solutionSaveRequest.getTutorialId());
         Solution solution = new Solution();
