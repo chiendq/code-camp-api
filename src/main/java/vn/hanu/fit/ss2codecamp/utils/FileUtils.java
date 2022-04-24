@@ -2,7 +2,6 @@ package vn.hanu.fit.ss2codecamp.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vn.hanu.fit.ss2codecamp.controllers.TestController;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 
 public class FileUtils {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUtils.class);
 
     public static void init(String code,String path) throws IOException {
         save(code, path);

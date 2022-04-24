@@ -1,4 +1,4 @@
-package vn.hanu.fit.ss2codecamp.models;
+package vn.hanu.fit.ss2codecamp.Enums;
 
 public enum ERole {
     ROLE_USER,

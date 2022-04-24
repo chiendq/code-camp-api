@@ -1,5 +1,6 @@
 package vn.hanu.fit.ss2codecamp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,11 +11,11 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "tutorial")
+@Table(name = "tutorials")
 public class Tutorial implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String title;
 
@@ -22,4 +23,8 @@ public class Tutorial implements Serializable {
 
     private String expected;
 
+    @OneToMany(fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL,mappedBy = "tutorial")
+    @JsonIgnore
+    private List<Solution> solutions;
 }

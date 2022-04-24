@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.hanu.fit.ss2codecamp.Exceptions.TutorialNotFoundException;
 import vn.hanu.fit.ss2codecamp.entities.Respone;
 import vn.hanu.fit.ss2codecamp.entities.Tutorial;
-import vn.hanu.fit.ss2codecamp.services.TutorialService;
+import vn.hanu.fit.ss2codecamp.services.impl.TutorialServiceImpl;
 import vn.hanu.fit.ss2codecamp.utils.FileUtils;
 import vn.hanu.fit.ss2codecamp.utils.JavaExecutor;
 
@@ -23,7 +23,7 @@ public class JavaCodeExecutorController {
     private static final String PATH = "TestClass.java";
 
     @Autowired
-    TutorialService tutorialService;
+    TutorialServiceImpl tutorialService;
 
     @PostMapping("/test")
     @JsonFormat

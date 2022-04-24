@@ -1,8 +1,6 @@
-package vn.hanu.fit.ss2codecamp.controllers;
+package vn.hanu.fit.ss2codecamp.auth;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
@@ -13,12 +11,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import vn.hanu.fit.ss2codecamp.config.AuthEntryPointJwt;
-import vn.hanu.fit.ss2codecamp.config.JwtUtils;
+import vn.hanu.fit.ss2codecamp.jwt.JwtUtils;
 import vn.hanu.fit.ss2codecamp.config.UserDetailsImpl;
 import vn.hanu.fit.ss2codecamp.entities.Role;
 import vn.hanu.fit.ss2codecamp.entities.User;
-import vn.hanu.fit.ss2codecamp.models.ERole;
+import vn.hanu.fit.ss2codecamp.Enums.ERole;
 import vn.hanu.fit.ss2codecamp.payload.request.LoginRequest;
 import vn.hanu.fit.ss2codecamp.payload.request.SignupRequest;
 import vn.hanu.fit.ss2codecamp.payload.response.MessageResponse;

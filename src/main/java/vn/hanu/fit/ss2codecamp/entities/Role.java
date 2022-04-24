@@ -1,12 +1,13 @@
 package vn.hanu.fit.ss2codecamp.entities;
 
-import vn.hanu.fit.ss2codecamp.models.ERole;
+import vn.hanu.fit.ss2codecamp.Enums.ERole;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

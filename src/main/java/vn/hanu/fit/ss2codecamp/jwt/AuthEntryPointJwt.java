@@ -1,4 +1,4 @@
-package vn.hanu.fit.ss2codecamp.config;
+package vn.hanu.fit.ss2codecamp.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
