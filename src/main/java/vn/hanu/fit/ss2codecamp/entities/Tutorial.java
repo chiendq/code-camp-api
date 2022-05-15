@@ -32,4 +32,6 @@ public class Tutorial implements Serializable {
             cascade = CascadeType.ALL,mappedBy = "tutorial")
     @JsonIgnore
     private List<Comment> comments;
+
+    private String shortDescription;
 }
