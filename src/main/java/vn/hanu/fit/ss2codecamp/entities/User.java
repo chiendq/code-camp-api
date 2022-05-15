@@ -21,7 +21,7 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
 
     private String username;
@@ -40,6 +40,11 @@ public class User implements Serializable {
             cascade = CascadeType.ALL,mappedBy = "user")
     @JsonIgnore
     private List<Solution> solutions;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,mappedBy = "user")
+    @JsonIgnore
+    private List<Comment> comments;
 
     public User() {
     }

@@ -5,23 +5,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
-@Table(name = "solutions")
+@Table(name = "comments")
 @Entity
 @Getter
 @Setter
-public class Solution implements Serializable {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 9000)
-    private String details;
-
     private Timestamp createdAt;
+
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "tutorial_id")
@@ -29,13 +26,12 @@ public class Solution implements Serializable {
     private Tutorial tutorial;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,mappedBy = "tutorial")
+    @JoinColumn(name = "solution_id")
     @JsonIgnore
-    private List<Comment> comments;
+    private Solution solution;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+//    @JsonIgnore
+    private User user;
 }
-
-

@@ -1,4 +1,4 @@
-package vn.hanu.fit.ss2codecamp.entities;
+package vn.hanu.fit.ss2codecamp.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

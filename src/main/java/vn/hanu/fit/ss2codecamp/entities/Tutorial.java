@@ -27,4 +27,9 @@ public class Tutorial implements Serializable {
     cascade = CascadeType.ALL,mappedBy = "tutorial")
     @JsonIgnore
     private List<Solution> solutions;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,mappedBy = "tutorial")
+    @JsonIgnore
+    private List<Comment> comments;
 }
