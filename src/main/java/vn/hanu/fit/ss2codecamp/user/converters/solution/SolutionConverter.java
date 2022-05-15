@@ -38,6 +38,7 @@ public class SolutionConverter {
 
         responseDto.setId(solution.getId());
         responseDto.setDetails(solution.getDetails());
+        responseDto.setUsername(solution.getUser().getUsername());
         responseDto.setCreatedAt(solution.getCreatedAt());
         return responseDto;
     }

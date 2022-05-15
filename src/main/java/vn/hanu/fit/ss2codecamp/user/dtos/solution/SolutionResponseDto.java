@@ -16,6 +16,7 @@ import java.util.List;
 public class SolutionResponseDto {
     private int id;
     private String details;
+    private String username;
     private Timestamp createdAt;
     private List<CmtResponseDto> comments;
 }
