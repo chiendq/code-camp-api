@@ -1,13 +1,20 @@
 package vn.hanu.fit.ss2codecamp.services.impl;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import vn.hanu.fit.ss2codecamp.dtos.Comment.CmtResponseDto;
 import vn.hanu.fit.ss2codecamp.entities.Comment;
+import vn.hanu.fit.ss2codecamp.entities.Solution;
 import vn.hanu.fit.ss2codecamp.entities.Tutorial;
 import vn.hanu.fit.ss2codecamp.entities.User;
 import vn.hanu.fit.ss2codecamp.repositories.CommentRepository;
 import vn.hanu.fit.ss2codecamp.services.CommentService;
+import vn.hanu.fit.ss2codecamp.services.SolutionService;
+import vn.hanu.fit.ss2codecamp.services.TutorialService;
+import vn.hanu.fit.ss2codecamp.services.UserService;
+import vn.hanu.fit.ss2codecamp.user.dtos.RequestComment;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +23,20 @@ public class CommentServiceImpl implements CommentService {
 
     private CommentRepository commentRepository;
 
-    public CommentServiceImpl(CommentRepository commentRepository) {
+    private UserService userService;
+
+    private SolutionService solutionService;
+
+    private TutorialService tutorialService;
+
+    public CommentServiceImpl(CommentRepository commentRepository,
+                              UserService userService,
+                              @Lazy  SolutionService solutionService,
+                              TutorialService tutorialService) {
         this.commentRepository = commentRepository;
+        this.userService = userService;
+        this.solutionService = solutionService;
+        this.tutorialService = tutorialService;
     }
 
     @Override
@@ -43,7 +62,24 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment save(Object comment) {
-        return commentRepository.save((Comment) comment);
+        RequestComment requestComment = (RequestComment) comment;
+        User user;
+        Solution solution;
+        Tutorial tutorial;
+        try {
+            user = (User) userService.getById(requestComment.getUserId());
+            solution = (Solution) solutionService.getById(requestComment.getSolutionId());
+            tutorial = tutorialService.getById(requestComment.getTutorialId());
+        }catch (Exception e){
+            throw new RuntimeException("NOT FOUND");
+        }
+        Comment saveComment = new Comment();
+        saveComment.setContent(requestComment.getContent());
+        saveComment.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+        saveComment.setTutorial(tutorial);
+        saveComment.setSolution(solution);
+        saveComment.setUser(user);
+        return commentRepository.save(saveComment);
     }
 
     @Override

@@ -69,11 +69,11 @@ public class AuthController {
 
         return ResponseEntity.ok()
                         .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                        .header("Access-Control-Allow-Origin", "*")
-                        .header("Access-Control-Allow-Headers", "*")
-                        .header("Access-Control-Allow-Credentials", "true")
-                        .header("Access-Control-Allow-Methods", "*")
-                        .header("Access-Control-Max-Age", "1209600")
+//                        .header("Access-Control-Allow-Origin", "*")
+//                        .header("Access-Control-Allow-Headers", "*")
+//                        .header("Access-Control-Allow-Credentials", "true")
+//                        .header("Access-Control-Allow-Methods", "*")
+//                        .header("Access-Control-Max-Age", "1209600")
                 .body(new UserInfoResponse(userDetails.getId(),
                         userDetails.getUsername(),
                         userDetails.getEmail(),

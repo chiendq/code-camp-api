@@ -8,6 +8,7 @@ import vn.hanu.fit.ss2codecamp.converters.comment.CommentConverter;
 import vn.hanu.fit.ss2codecamp.dtos.Comment.CmtResponseDto;
 import vn.hanu.fit.ss2codecamp.entities.Comment;
 import vn.hanu.fit.ss2codecamp.services.CommentService;
+import vn.hanu.fit.ss2codecamp.user.dtos.RequestComment;
 
 import java.util.List;
 
@@ -42,4 +43,9 @@ public class CommentController {
         return ResponseEntity.ok( (Comment) commentService.getById((id)));
     }
 
+    @PostMapping("")
+    public ResponseEntity saveComment(@RequestBody RequestComment requestComment){
+        commentService.save(requestComment);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
