@@ -2,7 +2,7 @@ package vn.hanu.fit.ss2codecamp.entities;
 
 import lombok.Getter;
 import lombok.Setter;
-import vn.hanu.fit.ss2codecamp.Enums.ERole;
+import vn.hanu.fit.ss2codecamp.enums.ERole;
 
 import javax.persistence.*;
 import java.io.Serializable;

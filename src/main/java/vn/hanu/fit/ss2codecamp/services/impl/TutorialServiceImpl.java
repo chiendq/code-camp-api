@@ -1,8 +1,7 @@
 package vn.hanu.fit.ss2codecamp.services.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.hanu.fit.ss2codecamp.Exceptions.TutorialNotFoundException;
+import vn.hanu.fit.ss2codecamp.exceptions.TutorialNotFoundException;
 import vn.hanu.fit.ss2codecamp.entities.Tutorial;
 import vn.hanu.fit.ss2codecamp.repositories.TutorialRepository;
 import vn.hanu.fit.ss2codecamp.services.TutorialService;

@@ -1,4 +1,4 @@
-package vn.hanu.fit.ss2codecamp.Exceptions;
+package vn.hanu.fit.ss2codecamp.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
