@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-@CrossOrigin(origins = {"http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3000","https://ss2-code-camp.vercel.app/"})
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
